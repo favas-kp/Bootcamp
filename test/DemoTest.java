@@ -10,4 +10,10 @@ class DemoTest {
         Demo demo = new Demo();
         assertEquals("hii", demo.identity("hii"));
     }
+
+    @Test
+    void anotherTest() {
+        Demo demo = new Demo();
+        assertEquals(0, demo.anotherMethod());
+    }
 }
