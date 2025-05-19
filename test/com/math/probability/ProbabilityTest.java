@@ -29,7 +29,9 @@ class ProbabilityTest {
 
     @Test
     void twoCoinsWithTails() {
-        Probability probability = Probability.fromValue(0.25);
-        assert(probability.equals(Probability.fromValue(0.25)));
+        Probability probability1 = Probability.fromValue(0.5);
+        Probability probability2 = Probability.fromValue(0.5);
+        Probability total = probability1.and(probability2);
+        assert(total.equals(Probability.fromValue(0.25)));
     }
 }

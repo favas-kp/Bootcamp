@@ -1,5 +1,7 @@
 package com.math.probability;
 
+import java.util.Objects;
+
 public class Probability {
     private final double value;
 
@@ -17,6 +19,10 @@ public class Probability {
         return new Probability(1 - value);
     }
 
+    public Probability and(Probability probability){
+        return  new Probability(value * probability.value);
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof Probability)) return false;
@@ -26,6 +32,6 @@ public class Probability {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hashCode(value);
     }
 }
