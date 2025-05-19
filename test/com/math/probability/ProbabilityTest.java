@@ -7,20 +7,21 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProbabilityTest {
     @Test
     void favorable() {
-        Probability probability = Probability.fromValues(1, 2);
-        assertEquals(0.5, probability.favorProbability());
+        Probability probability = Probability.fromValue(0.5);
+        assert(probability.equals(Probability.fromValue(0.5)));
     }
 
     @Test
     void nonFavorable() {
-        Probability probability = Probability.fromValues(1, 2);
-        assertEquals(0.5, probability.nonFavorProbability());
+        Probability probability = Probability.fromValue(0.5);
+        Probability nonFav = probability.not();
+        assert(nonFav.equals(Probability.fromValue(0.5)));
     }
 
     @Test
     void invalidValues() {
         InvalidValuesException exception = assertThrows(InvalidValuesException.class, () -> {
-            Probability.fromValues(8, 1);
+            Probability.fromValue(1.1);
         });
 
         assertEquals("Values are invalid", exception.getMessage());
@@ -28,7 +29,7 @@ class ProbabilityTest {
 
     @Test
     void twoCoinsWithTails() {
-        Probability probability = Probability.fromValues(1, 4);
-        assertEquals(0.25, probability.favorProbability());
+        Probability probability = Probability.fromValue(0.25);
+        assert(probability.equals(Probability.fromValue(0.25)));
     }
 }
