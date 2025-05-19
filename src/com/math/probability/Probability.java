@@ -34,4 +34,8 @@ public class Probability {
     public int hashCode() {
         return Objects.hashCode(value);
     }
+
+    public Probability or(Probability probability) {
+        return new Probability((value + probability.value ) - (value * probability.value));
+    }
 }

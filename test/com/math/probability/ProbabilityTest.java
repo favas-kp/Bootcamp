@@ -8,14 +8,16 @@ class ProbabilityTest {
     @Test
     void favorable() {
         Probability probability = Probability.fromValue(0.5);
-        assert(probability.equals(Probability.fromValue(0.5)));
+
+        assertEquals(probability, Probability.fromValue(0.5));
     }
 
     @Test
     void nonFavorable() {
         Probability probability = Probability.fromValue(0.5);
         Probability nonFav = probability.not();
-        assert(nonFav.equals(Probability.fromValue(0.5)));
+
+        assertEquals(nonFav, Probability.fromValue(0.5));
     }
 
     @Test
@@ -32,6 +34,16 @@ class ProbabilityTest {
         Probability probability1 = Probability.fromValue(0.5);
         Probability probability2 = Probability.fromValue(0.5);
         Probability total = probability1.and(probability2);
-        assert(total.equals(Probability.fromValue(0.25)));
+
+        assertEquals(total, Probability.fromValue(0.25));
+    }
+
+    @Test
+    void atLeastOneTail() {
+        Probability probability1 = Probability.fromValue(0.5);
+        Probability probability2 = Probability.fromValue(0.5);
+        Probability atLeastOne = probability1.or(probability2);
+
+        assertEquals(atLeastOne,Probability.fromValue(0.75));
     }
 }
