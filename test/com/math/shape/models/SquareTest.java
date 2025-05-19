@@ -1,4 +1,4 @@
-package com.example.models;
+package com.math.shape.models;
 
 import org.junit.jupiter.api.Test;
 
@@ -27,5 +27,10 @@ class SquareTest {
     void calculateZeroPerimeter() {
         Square square = new Square(0);
         assertEquals(0, square.perimeter());
+    }
+
+    @Test
+    void errorForNegativeDimension() {
+        Square square = new Square(-3);
     }
 }

@@ -1,4 +1,4 @@
-package com.example.models;
+package com.math.shape.models;
 
 import org.junit.jupiter.api.Test;
 
@@ -19,13 +19,13 @@ class RectangleTest {
 
     @Test
     void perimeter() {
-        Shape shape = new Rectangle(4,5);
+        Rectangle shape = new Rectangle(4,5);
         assertEquals(18, shape.perimeter());
     }
 
     @Test
     void perimeterWithZero() {
-        Shape shape = new Rectangle(0,0);
+        Rectangle shape = new Rectangle(0,0);
         assertEquals(0, shape.perimeter());
     }
 }
