@@ -25,4 +25,10 @@ class ProbabilityTest {
 
         assertEquals("Values are invalid", exception.getMessage());
     }
+
+    @Test
+    void twoCoinsWithTails() {
+        Probability probability = Probability.fromValues(1, 4);
+        assertEquals(0.25, probability.favorProbability());
+    }
 }
