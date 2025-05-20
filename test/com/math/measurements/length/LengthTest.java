@@ -29,4 +29,23 @@ class LengthTest {
 
         assertEquals(cm, mm);
     }
+
+    @Test
+    void addsTwoInches() {
+        Length inch1 = Length.inInch(2);
+        Length inch2 = Length.inInch(2);
+        Length sum = inch1.add(inch2);
+
+        assertEquals(Length.inInch(4), sum);
+    }
+
+    @Test
+    void errorWhenTwoDifferentUnitsAdded() {
+        Length cm = Length.inCentimeter(2);
+        Length mm = Length.inMillimeter(3);
+
+        assertThrows(InvalidUnitException.class, () -> {
+            cm.add(mm);
+        });
+    }
 }

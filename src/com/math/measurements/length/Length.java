@@ -27,6 +27,12 @@ public class Length {
         return new Length(value, Unit.MILLIMETER);
     }
 
+    public Length add(Length length) {
+        if (!unit.name().equals(length.unit.name())) throw new InvalidUnitException("Both has to be same unit");
+
+        return new Length(length.value + value, unit);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Length length)) return false;
