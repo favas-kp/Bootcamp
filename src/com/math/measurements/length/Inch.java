@@ -1,4 +1,4 @@
-package com.math.length;
+package com.math.measurements.length;
 
 public class Inch extends Length {
     public Inch(double value) {

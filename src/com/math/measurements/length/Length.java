@@ -1,10 +1,10 @@
-package com.math.length;
+package com.math.measurements.length;
 
 import java.util.Objects;
 
 public abstract class Length {
-    double value;
-    double factor;
+    private final double value;
+    private final double factor;
 
     public Length(double value, double factor) {
         this.value = value;

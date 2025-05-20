@@ -1,8 +1,7 @@
-package com.math.length;
+package com.math.measurements.length;
 
+import com.math.measurements.length.*;
 import org.junit.jupiter.api.Test;
-
-import javax.naming.ContextNotEmptyException;
 
 import static org.junit.jupiter.api.Assertions.*;
 

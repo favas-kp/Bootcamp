@@ -1,4 +1,4 @@
-package com.math.length;
+package com.math.measurements.length;
 
 public class Millimeter extends Length {
     public Millimeter(double value) {

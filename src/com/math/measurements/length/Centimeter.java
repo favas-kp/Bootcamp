@@ -1,4 +1,4 @@
-package com.math.length;
+package com.math.measurements.length;
 
 public class Centimeter extends Length {
     public Centimeter(double value) {
