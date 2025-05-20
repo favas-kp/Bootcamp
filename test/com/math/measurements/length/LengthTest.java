@@ -31,30 +31,20 @@ class LengthTest {
     }
 
     @Test
-    void addsTwoInches() {
+    void addsTwoInchesAndGetInInches() {
         Length inch1 = Length.inInch(2);
         Length inch2 = Length.inInch(2);
-        Length sum = inch1.add(inch2);
+        Length sumInInch = inch1.add(inch2);
 
-        assertEquals(Length.inInch(4), sum);
+        assertEquals(Length.inInch(4), sumInInch);
     }
 
     @Test
-    void addsTwoMillimeters() {
-        Length mm1 = Length.inMillimeter(2);
-        Length mm2 = Length.inMillimeter(3);
-        Length sum = mm1.add(mm2);
+    void addInchAndCentimeterAndGetInInches() {
+        Length inches = Length.inInch(2);
+        Length cm = Length.inCentimeter(2.5);
+        Length sumInInch = inches.add(cm);
 
-        assertEquals(Length.inMillimeter(5), sum);
-    }
-
-    @Test
-    void errorWhenTwoDifferentUnitsAdded() {
-        Length cm = Length.inCentimeter(2);
-        Length mm = Length.inMillimeter(3);
-
-        assertThrows(InvalidUnitException.class, () -> {
-            cm.add(mm);
-        });
+        assertEquals(Length.inInch(3), sumInInch);
     }
 }

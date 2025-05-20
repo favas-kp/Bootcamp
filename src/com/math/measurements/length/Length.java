@@ -28,9 +28,9 @@ public class Length {
     }
 
     public Length add(Length length) {
-        if (!unit.name().equals(length.unit.name())) throw new InvalidUnitException("Both has to be same unit");
-
-        return new Length(length.value + value, unit);
+        final double sumValue = (length.unit.getBaseValue(length.value) + unit.getBaseValue(value)) / 5;
+        System.out.println(sumValue);
+        return new Length(sumValue, Unit.INCH);
     }
 
     @Override
