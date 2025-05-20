@@ -40,6 +40,15 @@ class LengthTest {
     }
 
     @Test
+    void addsTwoMillimeters() {
+        Length mm1 = Length.inMillimeter(2);
+        Length mm2 = Length.inMillimeter(3);
+        Length sum = mm1.add(mm2);
+
+        assertEquals(Length.inMillimeter(5), sum);
+    }
+
+    @Test
     void errorWhenTwoDifferentUnitsAdded() {
         Length cm = Length.inCentimeter(2);
         Length mm = Length.inMillimeter(3);
