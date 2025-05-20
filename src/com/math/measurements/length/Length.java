@@ -29,7 +29,6 @@ public class Length {
 
     public Length add(Length length) {
         final double sumValue = (length.unit.getBaseValue(length.value) + unit.getBaseValue(value)) / 5;
-        System.out.println(sumValue);
         return new Length(sumValue, Unit.INCH);
     }
 

@@ -19,6 +19,11 @@ public class Volume {
         return new Volume(value, Unit.LITER);
     }
 
+    public Volume add(Volume volume) {
+        final double sum = (double) Math.round((unit.getUnitValue(value) + volume.unit.getUnitValue(volume.value)) * 100) / 100;
+        return new Volume(sum, Unit.LITER);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Volume volume)) return false;
