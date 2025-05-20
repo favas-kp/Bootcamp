@@ -4,39 +4,37 @@ import java.util.Objects;
 
 public class Length {
     private final double value;
-    private final double factor;
+    private final Unit unit;
 
-    private Length(double value, double factor) {
+    private Length(double value, Unit unit) {
         this.value = value;
-        this.factor = factor;
+        this.unit = unit;
     }
 
     public static Length inCentimeter(double value) {
-        return new Length(value, 2);
+        return new Length(value, Unit.CENTIMETER);
     }
 
     public static Length inFeet(double value) {
-        return new Length(value, 60);
+        return new Length(value, Unit.FEET);
     }
-
 
     public static Length inInch(double value) {
-        return new Length(value, 5);
+        return new Length(value, Unit.INCH);
     }
 
-
     public static Length inMillimeter(double value) {
-        return new Length(value, 0.2);
+        return new Length(value, Unit.MILLIMETER);
     }
 
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Length length)) return false;
-        return (value * factor) == (length.value * length.factor);
+        return unit.getBaseValue(value) == length.unit.getBaseValue(length.value);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(value, factor);
+        return Objects.hash(value, unit);
     }
 }

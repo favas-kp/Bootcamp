@@ -1,34 +1,32 @@
 package com.math.measurements.volume;
 
-import com.math.measurements.length.Length;
-
 import java.util.Objects;
 
 public class Volume {
     private final double value;
-    private final double factor;
+    private final Unit unit;
 
-    private Volume(double value, double factor) {
+    private Volume(double value, Unit unit) {
         this.value = value;
-        this.factor = factor;
+        this.unit = unit;
     }
 
     public static Volume inGallon(double value) {
-        return new Volume(value, 3.78);
+        return new Volume(value, Unit.GALLON);
     }
 
     public static Volume inLiter(double value) {
-        return new Volume(value, 1);
+        return new Volume(value, Unit.LITER);
     }
 
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Volume volume)) return false;
-        return (value * factor) == (volume.value * volume.factor);
+        return unit.getUnitValue(value) == volume.unit.getUnitValue(volume.value);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(value, factor);
+        return Objects.hash(value, unit);
     }
 }
